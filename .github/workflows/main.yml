@@ -1,0 +1,44 @@
+name: Scrapy Spider
+
+on:
+  push:
+    branches:
+      - main  # Run on main branch
+  schedule:
+    - cron: '0 */2 * * *'  # Run every 2 hours
+  workflow_dispatch:  # Allow manual triggering
+
+jobs:
+  scrape_and_store:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install scrapy scrapy-playwright
+
+      - name: Run Scrapy spider
+        run: scrapy crawl daraz
+
+      - name: Push data to SQLite
+        run: |
+          python daraz_scraper/pipelines.py
+
+
+    # The schedule event is set to run the workflow every 2 hours (0 */2 * * *).
+    # The job scrape_and_store is triggered by the schedule and also allows for manual triggering (workflow_dispatch).
+    # The steps in the job are the same as before:
+    #     Checkout repository.
+    #     Set up Python.
+    #     Install dependencies (scrapy and scrapy-playwright).
+    #     Run the Scrapy spider (scrapy crawl daraz).
+    #     Push the scraped data into the SQLite database by running the pipelines.py script.
