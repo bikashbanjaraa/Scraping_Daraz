@@ -31,8 +31,11 @@ class DarazSpider(scrapy.Spider):
 
 
     def start_requests(self):
-        url = "https://www.daraz.com.np/ankle-boots/" 
-        yield scrapy.Request(url,
+        urls = ["https://www.daraz.com.np/ankle-boots/",
+                "https://www.daraz.com.np/mens-watches/"
+        ]
+        for url in urls:
+            yield scrapy.Request(url,
                              meta={"playwright":True, #it tells Scrapy to route the request through scrapy-playwright
                                    "playwright-page-method":[
                                        PageMethod("evaluate",scrolling_script),
