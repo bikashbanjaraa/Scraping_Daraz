@@ -1,4 +1,4 @@
-GitHub Actions Setup for Scrapy Spider
+
 Overview:
 
 This repository contains a Scrapy spider (daraz) set up to scrape data from the Daraz website, and a GitHub Actions workflow (main.yml) that runs the spider every 2 hours and pushes the scraped data into an SQLite database.
