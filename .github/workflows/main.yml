@@ -3,7 +3,7 @@ name: darazscrapper
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * 3' # On Sunday
+    - cron: '0 0 * * 3' # On wednesday
 
 jobs:
   build:
