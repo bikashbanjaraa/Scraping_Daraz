@@ -15,7 +15,7 @@ SQLite Pipeline (pipelines.py):
 
 GitHub Actions Workflow (main.yml):
         The .github/workflows directory contains a GitHub Actions workflow file (scrapy.yml).
-        The workflow is set to run on a schedule every 2 hours (0 */2 * * *) and allows for manual triggering.
+        The workflow is set to run on a schedule every wednesday (* * * * 3) and allows for manual triggering.
         Steps in the workflow:
             Checks out the repository.
             Sets up Python environment.
