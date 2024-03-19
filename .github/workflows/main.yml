@@ -23,4 +23,6 @@ jobs:
           pip install -r requirements.txt
 
       - name: daraz web scraper
-        run: scrapy crawl daraz
+        run: 
+          cd /home/bikash/Desktop/daraz\ scrapy/daraz_scraper 
+          scrapy crawl daraz
