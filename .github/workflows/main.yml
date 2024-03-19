@@ -24,5 +24,5 @@ jobs:
 
       - name: Daraz web scraper
         run: |
-          cd /home/bikash/Desktop/daraz_scrapy/daraz_scraper 
+          cd /daraz_scrapy/daraz_scraper 
           scrapy crawl daraz -o output.json
