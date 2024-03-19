@@ -23,6 +23,4 @@ jobs:
           pip install -r requirements.txt
 
       - name: Daraz web scraper
-        run: |
-          cd /daraz_scraper 
-          scrapy crawl daraz -o output.json
+        run: scrapy crawl daraz -o output.json
