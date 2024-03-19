@@ -25,4 +25,4 @@ jobs:
       - name: Daraz web scraper
         run: |
           cd daraz_scraper/daraz_scraper/spiders
-          scrapy crawl daraz -o output.json
+          scrapy crawl daraz -o darazdata.json
